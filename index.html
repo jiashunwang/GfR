@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Generalizing from References using a Multi-Task Reference and Goal-Driven RL Framework">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Generalizing from References</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script defer src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero publication-header">
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title publication-title">
+            Generalizing from References using a Multi-Task Reference and Goal-Driven RL Framework
+          </h1>
+          <div class="publication-venue">Robotics: Science and Systems (RSS) 2026</div>
+
+          <div class="publication-authors author-list">
+            <span class="author-block">
+              Jiashun Wang<sup>1,2</sup></span>
+            <span class="author-block">
+              M. Eva Mungai<sup>1</sup></span>
+            <span class="author-block">
+              He Li<sup>1</sup></span>
+            <span class="author-block">
+              Jean Pierre Sleiman<sup>1</sup></span>
+            <br class="author-break">
+            <span class="author-block">
+              Jessica Hodgins<sup>1,2</sup></span>
+            <span class="author-block">Farbod Farshidian<sup>1</sup></span>
+          </div>
+
+          <div class="publication-authors publication-affiliations">
+            <span class="author-block"><sup>1</sup>RAI Institute</span>
+            <span class="author-block"><sup>2</sup>Carnegie Mellon University</span>
+          </div>
+
+          <div class="publication-link-row has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="static/mat/gfr_paper.pdf"
+                   class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener noreferrer">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://youtu.be/N0aWk7LcYX4"
+                   class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener noreferrer">
+                  <span class="icon">
+                    <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>YouTube</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="hero-video-frame">
+        <video autoplay loop playsinline controls muted preload="metadata">
+          <source src="./static/mat/video_gfr_camera_ready.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <section class="section media-section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Learning agile humanoid behaviors from human motion offers a powerful route to natural, coordinated control, but existing approaches face a persistent trade-off: reference-tracking policies are often brittle outside the demonstration dataset, while purely task-driven reinforcement learning can achieve adaptability at the cost of motion quality. We introduce a multi-task RL training paradigm that bridges this gap by treating reference motion as a prior for behavioral shaping rather than a deployment-time constraint. A goal-conditioned policy is trained jointly on two tasks that share the same observation and action spaces, but differ in their initialization schemes, command spaces, and reward structures: a reference-guided imitation task in which reference trajectories define dense imitation rewards but are not provided as policy inputs, and a goal-conditioned generalization task in which goals are sampled independently of any reference and rewards reflect only task success. By co-optimizing these objectives within a shared observation space, the policy acquires structured, human-like motor skills from dense reference supervision while learning to adapt these skills to novel goals and initial conditions. This is achieved without adversarial objectives, explicit trajectory tracking, phase variables, or reference-dependent inference. We evaluate the method on a challenging box-based parkour playground that demands diverse athletic behaviors such as jumping and climbing, and show that the learned controller transfers beyond the reference distribution while preserving motion naturalness. Finally, we demonstrate that the learned skills can be composed in long-horizon scenarios using a simple state-machine-based evaluation protocol, highlighting their robustness and ability to generalize across diverse task conditions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section media-section">
+    <div class="container is-max-desktop">
+      <div class="section-heading has-text-centered">
+        <h2 class="title is-3">Long-Horizon Skill Composition</h2>
+        <p class="section-subtitle">A rule-based composer sequences learned skills into long-horizon parkour rollouts.</p>
+      </div>
+
+      <div class="video-switcher" aria-label="Long-horizon video selector">
+        <button class="video-choice is-active" type="button" data-video="./static/mat/longhorizon1.mp4">Scenario 1</button>
+        <button class="video-choice" type="button" data-video="./static/mat/longhorizon2.mp4">Scenario 2</button>
+        <button class="video-choice" type="button" data-video="./static/mat/longhorizon3.mp4">Scenario 3</button>
+        <button class="video-choice" type="button" data-video="./static/mat/longhorizon4.mp4">Scenario 4</button>
+      </div>
+
+      <div class="video-frame">
+        <video id="long-horizon-video" autoplay loop playsinline controls muted preload="metadata">
+          <source src="./static/mat/longhorizon1.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <section class="section media-section">
+    <div class="container is-max-desktop">
+      <div class="section-heading has-text-centered">
+        <h2 class="title is-3">Generalization Results</h2>
+        <p class="section-subtitle">The goal-conditioned policy adapts reference-shaped skills to novel goals and initial conditions.</p>
+      </div>
+
+      <div class="video-stack">
+        <article class="result-card result-card-wide">
+          <h3 class="title is-5">Climb</h3>
+          <video autoplay loop playsinline controls muted preload="metadata">
+            <source src="./static/mat/climb.mp4" type="video/mp4">
+          </video>
+        </article>
+        <article class="result-card result-card-wide">
+          <h3 class="title is-5">Jump</h3>
+          <video autoplay loop playsinline controls muted preload="metadata">
+            <source src="./static/mat/jump.mp4" type="video/mp4">
+          </video>
+        </article>
+        <article class="result-card result-card-wide">
+          <h3 class="title is-5">Climb Down</h3>
+          <video autoplay loop playsinline controls muted preload="metadata">
+            <source src="./static/mat/climbdown.mp4" type="video/mp4">
+          </video>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section media-section">
+    <div class="container is-max-desktop">
+      <div class="section-heading has-text-centered">
+        <h2 class="title is-3">MuJoCo Results</h2>
+        <p class="section-subtitle">These rollouts show sim-to-sim transfer of composed skills in a different physics engine.</p>
+      </div>
+
+      <div class="video-grid two-up">
+        <article class="result-card">
+          <h3 class="title is-5">MuJoCo 1</h3>
+          <video autoplay loop playsinline controls muted preload="metadata">
+            <source src="./static/mat/mujoco1.mp4" type="video/mp4">
+          </video>
+        </article>
+        <article class="result-card">
+          <h3 class="title is-5">MuJoCo 2</h3>
+          <video autoplay loop playsinline controls muted preload="metadata">
+            <source src="./static/mat/mujoco2.mp4" type="video/mp4">
+          </video>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section media-section">
+    <div class="container is-max-desktop">
+      <div class="section-heading has-text-centered">
+        <h2 class="title is-3">Method Extension</h2>
+        <p class="section-subtitle">Using the same framework, a single policy can learn multiple skills with perceptual input.</p>
+      </div>
+      <div class="video-frame">
+        <video autoplay loop playsinline controls muted preload="metadata">
+          <source src="./static/mat/extension.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title is-3">BibTeX</h2>
+      <pre><code>@article{wang2026generalizing,
+  title={Generalizing from References using a Multi-Task Reference and Goal-Driven RL Framework},
+  author={Wang, Jiashun and Mungai, M Eva and Li, He and Sleiman, Jean Pierre and Hodgins, Jessica and Farshidian, Farbod},
+  journal={arXiv preprint arXiv:2602.20375},
+  year={2026}
+}
+}</code></pre>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website template is borrowed from
+            <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
